@@ -5,10 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Order Processing App</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
+  <div class="app">
+    <header>
+      <h2>Welcome to order processing app</h2>
+      <p>An order processing app,is a JavaScript-powered application demonstrating functional logic, state management, and DOM manipulation.</p>
+    </header>
+    
+    <section class="form-section">
+      <form>
+        <label for="name">Product name:</label>
+        <input type="text" name="product-name" id="product-name"  required />
+        
+          <label for="price">Product price:</label>
+        <input type="number" name="product-price" id="product-price" required min=0 />
+        
+          <label for="quantity">Product quantity:</label>
+        <input type="number" name="product-quantity" id="product-quantity"  required min=0 />
+        
+        <button type="submit">Add Product</button>
+        
+        
+      </form>
+      
+    </section>
+    
+    
+    
+  </div>
   
+  
+  <script src="./js/script.js" type="text/javascript" charset="utf-8">
+  </script>
 </body>
 
 </html>

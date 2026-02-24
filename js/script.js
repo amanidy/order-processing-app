@@ -1,6 +1,22 @@
 document.addEventListener('DOMContentLoaded',()=>{
   
   const orderItems = [];
+  
+const orderButtonEl = document.getElementById('order-btn');
+
+orderButtonEl.addEventListener('click', () =>{
+  
+  
+  
+  const orderFormEl = document.getElementById('itemForm');
+  
+  if (!orderFormEl) {
+    console.log('ID not be found')
+    
+  }
+  
+  orderFormEl.classList.toggle('visible');
+})
 
 
 
@@ -45,12 +61,11 @@ function renderItems(){
   }
   
   itemsEl.innerHTML = orderItems.map(item => `
-     <div id="lists">
-     <h3>Name:${item.name}</h3>
-     <p>Price:${item.price}</p>
-     <p>Quantity:${item.quantity}</p>
-        
-      </div>
+     <div class="quick-item">
+      <div class="item-name">${item.name}</div>
+      <div class="item-price">Ksh ${item.price}</div>
+      <div class="item-qty">Qty: ${item.quantity}</div>
+  </div>
   
   `).join('');
 }
@@ -89,6 +104,34 @@ processBtnEl.addEventListener('click', () =>{
   
   
 })
+
+
+
+const priceInput = document.getElementById("product-price");
+const qtyInput = document.getElementById("product-quantity");
+const subtotalEl = document.getElementById("subtotal-value");
+
+function updateSubtotal() {
+  const price = Number(priceInput.value) || 0;
+  const qty = Number(qtyInput.value) || 0;
+  const subtotal = price * qty;
+  subtotalEl.textContent = `Ksh ${subtotal.toFixed(2)}`;
+}
+
+priceInput.addEventListener("input", updateSubtotal);
+qtyInput.addEventListener("input", updateSubtotal);
+
+document.getElementById("increase").onclick = () => {
+  qtyInput.value++;
+  updateSubtotal();
+};
+
+document.getElementById("decrease").onclick = () => {
+  if (qtyInput.value > 1) {
+    qtyInput.value--;
+    updateSubtotal();
+  }
+};
   
 })
 

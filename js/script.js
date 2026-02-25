@@ -1,7 +1,34 @@
+function handleDelete(id){
+  const key = "items";
+  const orderItems = JSON.parse(localStorage.getItem(key)) || [];
+  const updated = orderItems.filter(item => item.id !==id);
+  localStorage.setItem(key,JSON.stringify(updated));
+  location.reload();
+  
+}
+
+function handleEdit(id){
+  const newName = prompt("Enter the new name");
+  const newPrice = prompt("Enter the new price");
+  const newQty = prompt("Enter the new quantity");
+
+  const key = "items";
+  const orderItems = JSON.parse(localStorage.getItem(key)) || [];
+
+  const updated = orderItems.map(item => {
+    if(item.id === id){
+      return {...item,name:newName,price:newPrice,quantity:newQty}
+    }
+    return item
+  })
+    localStorage.setItem(key,JSON.stringify(updated));
+    location.reload();
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
 
 
-  const key = "items;"
+  const key = "items";
   const orderItems = JSON.parse(localStorage.getItem(key)) || [];
   
 const orderButtonEl = document.getElementById('order-btn');
@@ -34,6 +61,7 @@ let quantityEl = document.getElementById('product-quantity');
 
   
   orderItems.push({
+    id:Date.now(),
     name:nameEl.value.trim(),
     price:priceEl.value.trim(),
     quantity:quantityEl.value.trim()
@@ -72,10 +100,14 @@ function renderItems(){
       <div class="item-name">${item.name}</div>
       <div class="item-price">Ksh ${item.price}</div>
       <div class="item-qty">Qty: ${item.quantity}</div>
+      <button class ="delete-btn" onclick="handleEdit(${item.id})">Edit</button>
+      <button class ="delete-btn" onclick="handleDelete(${item.id})">Delete</button>
   </div>
   
   `).join('');
 }
+
+
 
 function saveItemsToLocalStorage(){
   localStorage.setItem(key,JSON.stringify(orderItems));
@@ -143,6 +175,9 @@ document.getElementById("decrease").onclick = () => {
     updateSubtotal();
   }
 };
+
+
+renderItems();
   
 })
 

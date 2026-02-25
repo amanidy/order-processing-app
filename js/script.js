@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded',()=>{
-  
-  const orderItems = [];
+
+
+  const key = "items;"
+  const orderItems = JSON.parse(localStorage.getItem(key)) || [];
   
 const orderButtonEl = document.getElementById('order-btn');
 
@@ -32,27 +34,32 @@ let quantityEl = document.getElementById('product-quantity');
 
   
   orderItems.push({
-    name:nameEl.value,
-    price:priceEl.value,
-    quantity:quantityEl.value
+    name:nameEl.value.trim(),
+    price:priceEl.value.trim(),
+    quantity:quantityEl.value.trim()
   });
+
+saveItemsToLocalStorage();
   
   
   
+   
+
   nameEl.value = "";
   priceEl.value = "";
   quantityEl.value = "";
   
   console.log(orderItems);
-  
+
   renderItems();
   
-  
+ 
 })
 
 function renderItems(){
   
   const itemsEl = document.getElementById('list-container');
+
   
   if (!itemsEl) {
     console.log('list-container was not found')
@@ -68,6 +75,10 @@ function renderItems(){
   </div>
   
   `).join('');
+}
+
+function saveItemsToLocalStorage(){
+  localStorage.setItem(key,JSON.stringify(orderItems));
 }
 
 const processBtnEl = document.getElementById('process-btn');

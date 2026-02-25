@@ -1,3 +1,6 @@
+const salesEl = document.getElementById("sales");
+
+
 function handleDelete(id){
   const key = "items";
   const orderItems = JSON.parse(localStorage.getItem(key)) || [];
@@ -47,7 +50,13 @@ orderButtonEl.addEventListener('click', () =>{
   orderFormEl.classList.toggle('visible');
 })
 
+function updatePendingItems(){
+  const pendingEl = document.querySelector('.pending-card .value');
 
+  if(pendingEl){
+    pendingEl.textContent = orderItems.length;
+  }
+}
 
 const addButton = document.getElementById('add-item');
 
@@ -80,6 +89,7 @@ saveItemsToLocalStorage();
   console.log(orderItems);
 
   renderItems();
+  updatePendingItems();
   
  
 })
@@ -118,32 +128,68 @@ const processBtnEl = document.getElementById('process-btn');
 processBtnEl.addEventListener('click', () =>{
   
   const receiptEl = document.getElementById('receipt-box')
-  
+
   let subtotal = 0;
-  let isValid = true;
-  let receipt ='---RECEIPT---\n';
   
-  orderItems.forEach(item =>{
-    
-    if (!item || item.quantity <=0) {
-      console.log(`Invalid process order for:${item.id}`);
+  let isValid = true;
+
+  orderItems.forEach(item => {
+    if (!item || item.quantity <= 0) {
       isValid = false;
     }
-    const itemTotal = Number(item.price) * item.quantity;
-    
+    const itemTotal = Number(item.price) * Number(item.quantity);
     subtotal += itemTotal;
-    receipt +=`${item.name} x${item.quantity}:$${itemTotal.toFixed(2)} \n`
   });
+
+  if (!isValid) return;
+
+  const tax = subtotal * 0.1;       
+  const total = subtotal + tax; 
   
-  if(!isValid) return 'Order processor failed';
-  
-  const tax = subtotal * 0.1;
-  const total = subtotal + tax;
-  receipt += `----------------\nSubtotal: $${subtotal.toFixed(2)}\n`;
-    receipt += `Tax (10%): $${tax.toFixed(2)}\n`;
-    receipt += `Total: $${total.toFixed(2)}`;
+ let receipt = `
+  <div class="receipt-container">
+    <h2 class="receipt-header">🧾 RECEIPT</h2>
+    <hr class="receipt-divider">
+    
+    <div class="receipt-items">
+      ${orderItems.map(item => `
+        <div class="receipt-item">
+          <span class="receipt-item-name">${item.name}</span>
+          <span class="receipt-item-qty">x${item.quantity}</span>
+          <span class="receipt-item-price">Ksh ${(Number(item.price) * item.quantity).toFixed(2)}</span>
+        </div>
+      `).join('')}
+    </div>
+
+    <hr class="receipt-divider">
+
+    <div class="receipt-summary">
+      <div class="receipt-row">
+        <span>Subtotal</span>
+        <span>Ksh ${subtotal.toFixed(2)}</span>
+      </div>
+      <div class="receipt-row">
+        <span>Tax (10%)</span>
+        <span>Ksh ${tax.toFixed(2)}</span>
+      </div>
+      <div class="receipt-row receipt-total">
+        <span>TOTAL</span>
+        <span>Ksh ${total.toFixed(2)}</span>
+      </div>
+    </div>
+
+    <hr class="receipt-divider">
+    <p class="receipt-footer">Thank you for your order!</p>
+  </div>
+`;
+
+
+    salesEl.innerHTML = `Ksh:${total.toFixed(2)}`;
     
     receiptEl.innerHTML = receipt;
+
+    orderItems.length =0;
+    updatePendingItems();
   
   
 })
@@ -178,6 +224,7 @@ document.getElementById("decrease").onclick = () => {
 
 
 renderItems();
+updatePendingItems();
   
 })
 

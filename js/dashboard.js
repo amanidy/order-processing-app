@@ -12,4 +12,11 @@ orderItems.forEach(item =>{
   
   totalItems += Number(item.quantity);
   
+  
 })
+
+document.getElementById("total-revenue").textContent = `Ksh${totalRevenue.toFixed(2)}`
+document.getElementById("total-orders").textContent = orderItems.length;
+document.getElementById("total-items").textContent =totalItems
+  
+

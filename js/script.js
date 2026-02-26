@@ -73,8 +73,8 @@ let quantityEl = document.getElementById('product-quantity');
   orderItems.push({
     id:Date.now(),
     name:nameEl.value.trim(),
-    price:priceEl.value.trim(),
-    quantity:quantityEl.value.trim()
+    price:Number(priceEl.value.trim()),
+    quantity:Number(quantityEl.value.trim())
   });
 
 saveItemsToLocalStorage();

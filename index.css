@@ -581,3 +581,26 @@ header p {
     font-size: 20px;
   }
 }
+
+
+.back-btn {
+  display: inline-block;
+  margin: 10px 16px;
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.chart-section {
+  background: white;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.chart-title {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #333;
+}

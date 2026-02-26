@@ -61,7 +61,8 @@ function updatePendingItems(){
 const addButton = document.getElementById('add-item');
 
 
-addButton.addEventListener('click',()=>{
+addButton.addEventListener('click',(e)=>{
+  e.preventDefault();
   
   let nameEl = document.getElementById('product-name');
 let priceEl = document.getElementById('product-price');

@@ -7,8 +7,6 @@ body {
   color: #1e1e1e;
 }
 
-
-
 header h2 {
   font-size: 24px;
   font-weight: 700;
@@ -16,84 +14,75 @@ header h2 {
   color: #111827;
 }
 
-
 header p {
   font-size: 14px;
   font-weight: 400;
-  color: #6b7280; /* muted grey */
+  color: #6b7280;
   margin: 0 16px 20px 16px;
 }
-
-
 
 #order-btn {
   display: block;
   width: calc(100% - 32px);
   margin: 0 16px 24px 16px;
   padding: 14px 0;
-  
   background: linear-gradient(135deg, #4f46e5, #2563eb);
   color: white;
-  
   border: none;
   border-radius: 12px;
-  
   font-size: 16px;
   font-weight: 600;
-  
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
 
 #order-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-#process-btn:active, #order-btn:active {
+#process-btn:active,
+#order-btn:active {
   transform: scale(0.98);
 }
 
-#view-btn{
-  background:#0f9d58;;
+#view-btn {
+  background: #0f9d58;
 }
-#process-btn{
+
+#process-btn {
   background: linear-gradient(135deg, #4f46e5, #2563eb);
 }
 
-#view-btn,#process-btn{
+#view-btn,
+#process-btn {
   display: block;
   width: 120px;
   margin: 0 16px 24px 16px;
   padding: 14px 14px;
-  
-  
   color: white;
-  
   border: none;
   border-radius: 12px;
-  
   font-size: 15px;
   font-weight: 600;
-  
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  
 }
 
-.action-btns{
-  margin-left: 200px;
+.action-btns {
   display: flex;
   flex-direction: row;
-  gap: 200px;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 16px;
+  margin-bottom: 8px;
 }
 
-.add-item-form{
+.add-item-form {
   display: none;
 }
 
-.add-item-form.visible{
+.add-item-form.visible {
   display: block;
 }
 
@@ -117,7 +106,6 @@ header p {
 .card:hover {
   transform: translateY(-3px);
 }
-
 
 .card h3 {
   font-size: 22px;
@@ -154,21 +142,17 @@ header p {
   color: #111827;
 }
 
-
-
 .quick-items {
   display: flex;
   gap: 12px;
   padding: 0 16px;
-  overflow-x: auto; 
+  overflow-x: auto;
   margin-bottom: 24px;
 }
-
 
 .quick-items::-webkit-scrollbar {
   display: none;
 }
-
 
 .quick-item {
   min-width: 120px;
@@ -192,7 +176,6 @@ header p {
   color: #111827;
 }
 
-
 .item-price {
   font-size: 13px;
   color: #2563eb;
@@ -205,22 +188,18 @@ header p {
   color: #6b7280;
 }
 
-
-
 .add-item-form {
   padding: 20px 16px;
   background: #f5f7fb;
   min-height: 100vh;
 }
 
-
 .form-container {
   background: white;
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
-
 
 .form-title {
   text-align: center;
@@ -228,7 +207,6 @@ header p {
   margin-bottom: 20px;
   font-weight: 600;
 }
-
 
 .form-group {
   margin-bottom: 18px;
@@ -253,7 +231,7 @@ header p {
 
 .form-group input:focus {
   border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
 }
 
 .quantity-control {
@@ -266,7 +244,6 @@ header p {
   text-align: center;
   width: 70px;
 }
-
 
 .qty-btn {
   width: 40px;
@@ -285,7 +262,6 @@ header p {
   color: white;
 }
 
-/* ===== SUBTOTAL ===== */
 .subtotal {
   display: flex;
   justify-content: space-between;
@@ -297,7 +273,6 @@ header p {
 #subtotal-value {
   color: #10b981;
 }
-
 
 .submit-btn {
   width: 100%;
@@ -323,8 +298,8 @@ header p {
   padding: 20px;
   max-width: 350px;
   margin: 20px auto;
-  font-family: 'Courier New', monospace;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  font-family: "Courier New", monospace;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
@@ -379,7 +354,230 @@ header p {
 }
 
 @media print {
-  body * { visibility: hidden; }
-  #receipt-box, #receipt-box * { visibility: visible; }
-  #receipt-box { position: absolute; top: 0; left: 0; }
+  body * {
+    visibility: hidden;
+  }
+  #receipt-box,
+  #receipt-box * {
+    visibility: visible;
+  }
+  #receipt-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+@media (min-width: 768px) {
+
+  body {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  header h2 {
+    font-size: 28px;
+    margin: 24px 24px 10px 24px;
+  }
+
+  header p {
+    font-size: 15px;
+    margin: 0 24px 24px 24px;
+  }
+
+  #order-btn {
+    width: calc(100% - 48px);
+    margin: 0 24px 28px 24px;
+    font-size: 17px;
+  }
+
+  #view-btn,
+  #process-btn {
+    width: 130px;
+    font-size: 15px;
+  }
+
+  .action-btns {
+    justify-content: flex-start;
+    padding: 0 24px;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .highlights {
+    padding: 0 24px;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 22px 16px;
+  }
+
+  .card h3 {
+    font-size: 26px;
+  }
+
+  .card .value {
+    font-size: 22px;
+  }
+
+  .quick-items {
+    padding: 0 24px;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 16px;
+  }
+
+  .quick-item {
+    min-width: 140px;
+    flex: 1 1 140px;
+  }
+
+  .add-item-form {
+    padding: 28px 24px;
+  }
+
+  .form-container {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 28px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+
+  #receipt-box {
+    max-width: 400px;
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header h2 {
+    font-size: 32px;
+    margin: 32px 32px 12px 32px;
+  }
+
+  header p {
+    font-size: 16px;
+    margin: 0 32px 28px 32px;
+  }
+
+  #order-btn {
+    width: auto;
+    display: inline-block;
+    margin: 0 32px 28px 32px;
+    padding: 14px 48px;
+    font-size: 17px;
+  }
+
+  #view-btn,
+  #process-btn {
+    width: 140px;
+    padding: 14px 20px;
+  }
+
+  .action-btns {
+    padding: 0 32px;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .highlights {
+    padding: 0 32px;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
+
+  .card h3 {
+    font-size: 28px;
+  }
+
+  .card .value {
+    font-size: 24px;
+  }
+
+  .card .title {
+    font-size: 14px;
+  }
+
+  .quick-items {
+    padding: 0 32px;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 20px;
+  }
+
+  .quick-item {
+    min-width: 160px;
+    flex: 1 1 160px;
+    padding: 18px;
+  }
+
+  .item-name {
+    font-size: 15px;
+  }
+
+  .item-price {
+    font-size: 14px;
+  }
+
+  .add-item-form {
+    padding: 36px 32px;
+  }
+
+  .form-container {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 36px;
+  }
+
+  .form-title {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  .form-group label {
+    font-size: 15px;
+  }
+
+  .form-group input {
+    font-size: 15px;
+    padding: 13px 16px;
+  }
+
+  .submit-btn {
+    font-size: 17px;
+    padding: 16px;
+  }
+
+  #receipt-box {
+    max-width: 460px;
+    padding: 28px;
+  }
+
+  .receipt-header {
+    font-size: 22px;
+  }
+
+  .receipt-item,
+  .receipt-row {
+    font-size: 15px;
+  }
+
+  .receipt-total {
+    font-size: 20px;
+  }
 }

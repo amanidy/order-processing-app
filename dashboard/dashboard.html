@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+
+    <header>
+      <h2>📊 Dashboard</h2>
+      <p>Sales overview from processed orders</p>
+    </header>
+
+    <a href="../index.html" class="back-btn">← Back to Orders</a>
+
+    
+    <section class="highlights">
+      <div class="card">
+        <h3>💰</h3>
+        <p class="title">Total Revenue</p>
+        <p class="value" id="total-revenue">Ksh 0</p>
+      </div>
+      <div class="card">
+        <h3>🧾</h3>
+        <p class="title">Total Orders</p>
+        <p class="value" id="total-orders">0</p>
+      </div>
+      <div class="card">
+        <h3>🛒</h3>
+        <p class="title">Items Sold</p>
+        <p class="value" id="total-items">0</p>
+      </div>
+    </section>
+
+  
+    <section class="chart-section">
+      <h3 class="chart-title">📈 Daily Revenue (Last 7 Days)</h3>
+      <canvas id="revenueChart"></canvas>
+    </section>
+
+    <section class="chart-section">
+      <h3 class="chart-title">🏆 Top Selling Items</h3>
+      <canvas id="topItemsChart"></canvas>
+    </section>
+
+    <section class="chart-section">
+      <h3 class="chart-title">🕐 Orders by Hour</h3>
+      <canvas id="hourlyChart"></canvas>
+    </section>
+
+  </div>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

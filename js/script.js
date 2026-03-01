@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let priceEl = document.getElementById('product-price');
     let quantityEl = document.getElementById('product-quantity');
 
-    // Basic validation — don't add empty items
+    
     if (!nameEl.value.trim() || !priceEl.value.trim()) {
       alert("Please fill in item name and price.");
       return;
@@ -97,8 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="item-name">${item.name}</div>
         <div class="item-price">Ksh ${item.price}</div>
         <div class="item-qty">Qty: ${item.quantity}</div>
-        <button class="delete-btn" onclick="handleEdit(${item.id})">Edit</button>
+        <div class="act-btn">
+        <button class="edit-btn" onclick="handleEdit(${item.id})">Edit</button>
         <button class="delete-btn" onclick="handleDelete(${item.id})">Delete</button>
+        </div>
       </div>
     `).join('');
   }

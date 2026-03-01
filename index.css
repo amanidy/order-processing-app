@@ -46,11 +46,13 @@ header p {
   transform: scale(0.98);
 }
 
-#view-btn {
+#view-btn,
+.edit-btn {
   background: #0f9d58;
 }
 
-#process-btn {
+#process-btn,
+.delete-btn{
   background: linear-gradient(135deg, #4f46e5, #2563eb);
 }
 
@@ -68,8 +70,24 @@ header p {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
+.edit-btn,
+.delete-btn{
+  width: 80px;
+  margin: 0 16px 24px 16px;
+  padding: 14px 14px;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  
+}
 
-.action-btns {
+
+.action-btns,
+.act-btn{
   display: flex;
   flex-direction: row;
   justify-content: center;

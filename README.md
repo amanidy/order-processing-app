@@ -1,14 +1,14 @@
-#Project Overview 
+# Project Overview 
 A lightweight order management system showcasing structured logic, clean UI, and real-time calculations.
 
-##Features
+## Features
 
-###Tech Stack
+### Tech Stack
 
-####Screenshots
+#### Screenshots
 
-#####What I Learned
+##### What I Learned
 
-#######Future Improvements 
+###### Future Improvements 
 
 

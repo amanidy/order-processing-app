@@ -15,7 +15,14 @@ A lightweight order management system showcasing structured logic, clean UI, and
  * JavaScript 
 
 #### Screenshots
- ![App overview](../images/image1.png)
+ ![App overview](images/image1.png)
+ ![Add Item section](images/image2.png)
+ ![Cards section](images/image3.png)
+ ![Dashboard overview](images/image4.png)
+  ![Selling overview](images/image5.png)
+
+
+
 
 ##### What I Learned
  * DOM manipulation 
